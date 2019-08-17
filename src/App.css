@@ -1,0 +1,41 @@
+.App{
+    height:100vh;
+    background-color: rgb(207, 247, 234);
+    padding-top:10px;
+    overflow: scroll;  
+}
+
+
+.btns{
+margin: 10px;
+}
+
+.card-title{
+    text-align: center;
+}
+.card_desc{
+    padding: 5px;
+    justify-content: center;
+    align-items: center;    
+    border-radius: 5px;
+    margin-right: 10px;
+    
+}
+
+
+.todo{
+    z-index:4;
+    border-radius:10px;
+    margin: 10px;
+    background-color:white;
+}
+
+input{
+    margin:8px;
+}
+.btn-primary{
+    margin:8px;
+}
+.delete {
+    background : red;
+}
