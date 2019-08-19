@@ -32,7 +32,6 @@ function App() {
     })
     }else{ todos = store.getState().todos;}
     
-    
         
    console.log('we are dumb'+todos); 
   // const [heading, setheading] = useState('Hey there');
