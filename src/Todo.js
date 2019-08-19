@@ -10,7 +10,7 @@ import './App.css';
 
 
 
-function Todo({todo,id,printOne}) {
+function Todo({todo,id}) {
 
   let pos1=0,pos2=0,pos3=0,pos4=0;
   const addLike = (e) =>{
@@ -42,7 +42,7 @@ function Todo({todo,id,printOne}) {
   return (
     
     
-    <Card  onMouseDown={(e)=>printOne(e,id)} className='todo' style={ todo.completed ? {opacity : 0.4} : {opacity : 1} }>
+    <Card  className='todo' style={ todo.completed ? {opacity : 0.4} : {opacity : 1} }>
       <Container style={{margin : '10px'}}>
       
           <Row className="card_desc">
