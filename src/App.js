@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react';
 import {store} from './store';
 import {addTodo} from './actions/fetchAction';
 import Todo from './Todo';
+import {removeTodo} from './actions/removeTodo';
 import {Container,Row,Col, Button,Form,Card} from 'react-bootstrap';
 import './App.css'
 
@@ -30,7 +31,6 @@ function App() {
       } 
     })
     }else{ todos = store.getState().todos;}
-    
     
         
    console.log('we are dumb'+todos); 
@@ -64,34 +64,6 @@ const completeOrNot = (e) =>{
 }
 
 
-const printOne = (e,key) => {
-  let todoElement = document.querySelectorAll('.todo');
-  currentodo = todoElement[key];
-  let offsetX=currentodo.offsetLeft;
-  let offsetY=currentodo.offsetTop;
-    pos3=e.pageX;
-    pos4=e.pageY;
-    pos1=e.clientX;
-    pos2=e.clientY;
-    
-    //add listener on screen when element is dragged.
-    document.addEventListener('mousemove',elementDrag,true);
-    document.addEventListener('mouseup',function(e){   
-    
-    //remove the listener when
-    document.removeEventListener('mousemove',elementDrag,true);
-      currentodo.style.top = (pos4-pos2-offsetY) + "px";
-      currentodo.style.left = (pos3 - pos1-offsetX) + "px";
- })   
-
-}
-
-function elementDrag(e) {
-  let x = e.screenX;
-  let y = e.screenY;
-  currentodo.style.top = (y-pos2) + "px";
-  currentodo.style.left = (x - pos1) + "px";
-}
 
 //re render the store
 const render = () => ReactDOM.render(<App />, document.getElementById("root"));
@@ -121,7 +93,7 @@ store.subscribe(render);
                                      No Items Present</h4> : <span></span>}</Col>
                                                
              {todos.map((todo,index) =>{
-              return (<Col md={4} key={index}><Todo className='todos' printOne={printOne} key={index} id={index} todo={todo}></Todo></Col>)
+              return (<Col md={4} key={index}><Todo className='todos'  key={index} id={index} todo={todo}></Todo></Col>)
             } )}
             
             </Row>
